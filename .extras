@@ -7,3 +7,27 @@
 searchnix() {
 	nix-env -qa \* -P | fgrep -i "$1";
 }
+
+#
+# Sourcing files
+#
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f ~/.nix-profile/etc/profile.d/bash_completion.sh ]; then
+    . ~/.nix-profile/etc/profile.d/bash_completion.sh
+fi
+
+# include git helpers
+if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh ]; then
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+fi
+if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+fi
+
+# source nix environment, if config exists
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
+fi
