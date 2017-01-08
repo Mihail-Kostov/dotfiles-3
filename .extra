@@ -37,7 +37,7 @@ fi
 ################
 
 # Get macOS Software Updates, and update installed nixpkgs, and their installed packages
-alias update='sudo softwareupdate -i -a; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;''
+alias update='sudo softwareupdate -i -a; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;'
 
 ################
 # Exports
@@ -48,3 +48,10 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="waja@cyconet.org"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+################
+# Load local overwrites
+################
+if [ -f ~/.extra.local ]; then
+    . ~/.extra.local
+fi
