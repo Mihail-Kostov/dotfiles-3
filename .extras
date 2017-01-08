@@ -31,3 +31,10 @@ fi
 if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
+
+#
+# Aliases
+#
+
+# Get macOS Software Updates, and update installed nixpkgs, and their installed packages
+alias update='sudo softwareupdate -i -a; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;''
