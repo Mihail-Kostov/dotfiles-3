@@ -49,6 +49,9 @@ GIT_AUTHOR_EMAIL="waja@cyconet.org"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
+# Avoid history duplicates
+export HISTCONTROL='ignoredups:erasedups';
+
 ################
 # Fixing bash prompt, set via .bash_prompt
 ################
