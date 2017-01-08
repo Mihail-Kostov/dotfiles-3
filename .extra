@@ -76,6 +76,11 @@ complete -d cd rmdir
 # Fixing bash prompt, set via .bash_prompt
 ################
 
+# Try to fix the yellow font color
+if tput setaf 1 &> /dev/null; then
+	yellow=$(tput setaf 3);
+fi
+
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -153,9 +158,7 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${reset}\]";
 PS1+="\[${white}\]:";
 PS1+="\[${bold}\]";
-# Yellow seems kinda broken!
-#PS1+="\[${yellow}\]\w"; # working directory full path
-PS1+="\[\033[01;33m\]\w"; # working directory full path
+PS1+="\[${yellow}\]\w"; # working directory full path
 PS1+=" \$(prompt_git \"\[${blue}\]\")"; # Git repository details
 # PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
