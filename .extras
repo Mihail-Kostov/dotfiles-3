@@ -1,6 +1,6 @@
-#
+################
 # Functions
-#
+################
 
 # `searchnix` is a shorthand for searching for installable packages in nixpkgs,
 # see https://nixos.org/wiki/Howto_find_a_package_in_NixOS#Aliases
@@ -8,9 +8,9 @@ searchnix() {
 	nix-env -qa \* -P | fgrep -i "$1";
 }
 
-#
+################
 # Sourcing files
-#
+################
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -32,9 +32,9 @@ if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
-#
+################
 # Aliases
-#
+################
 
 # Get macOS Software Updates, and update installed nixpkgs, and their installed packages
 alias update='sudo softwareupdate -i -a; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;''
