@@ -1,0 +1,8 @@
+################
+# Aliases
+################
+
+# Get macOS Software Updates, and update installed nixpkgs, and their installed packages
+# (redefining from .aliases as extending seems not possible)
+#alias update='sudo softwareupdate -i -a; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;'
+alias update='sudo softwareupdate -i -a; which brew > /dev/null && brew update && brew upgrade && brew cleanup; which npm > /dev/null && npm install npm -g && npm update -g; which gem > /dev/null && sudo gem update --system && sudo gem update && sudo gem cleanup; which nix-channel > /dev/null && nix-channel --update && nix-env -u --keep-going;'
